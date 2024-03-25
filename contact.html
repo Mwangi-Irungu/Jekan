@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | JTC</title>
+
+  <style>
+    /* General styles */
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #007bff;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Contact Form section */
+
+.contact-form {
+  padding: 50px;
+  background-color: #f2f2f2;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+h3 {
+  color: #01070e;
+  font: bold;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Contact Info section */
+
+.contact-info {
+  padding: 50px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+img {
+  margin-right: 10px;
+}
+
+a {
+  font-weight: bold;
+}
+
+/* Google Map section */
+
+.google-map {
+  padding: 50px;
+}
+
+#map {
+  width: 150%;
+  height: 400px;
+}
+footer {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+h3 {
+  color: blueviolet;
+}
+
+  </style>
+</head>
+<body>
+  <script>
+
+    const contactForm = document.querySelector('.contact-form form');
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+    
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+    
+      
+    const message = document.getElementById('message').value;
+    
+      // Send the form data to the server
+      // Replace with your actual server-side endpoint
+      fetch('/send-contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Your message has been sent successfully!');
+          contactForm.reset();
+        } else {
+          alert('There was an error sending your message. Please try again later.');
+        }
+      });
+    });
+  </script>
+
+  <header>
+    <nav>
+      <a href="#" class="logo">JEKAN COMPUTER, HAIR AND BEAUTY COLLEGE</a>
+      <ul>
+        <li><a href="new.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="learn.html">Learn with us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="contact-form">
+      <h2>Contact Form</h2>
+      <p>Please fill out the form below to contact us.</p>
+
+      <form action="#">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <section class="contact-info">
+      <h2>Contact Information</h2>
+      <p>You can also reach us at:</p>
+
+      <ul>
+        <li>
+          <h1> call us today</h1><br>
+        </li>
+        <li>
+         <h1>email for any inquiries</h1>
+         
+        </li>
+      </ul>
+    </section>
+
+    <section class="google-map">
+      <h2>Visit Us</h2>
+      <img src="map.PNG" alt="map" height="100%" width="100%">
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; All Rights Reserved. JTC 2023</p>
+  </footer>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
